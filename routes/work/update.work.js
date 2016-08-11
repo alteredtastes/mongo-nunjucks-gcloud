@@ -1,6 +1,5 @@
 var express = require('express');
-var queries = require('../queries.index.js');
-var Work = require('../../models/work.js');
+var Work = require('../../db/models/work.js');
 
 function updateWork(req, res) {
   Work.find({

@@ -1,9 +1,8 @@
 var express = require('express');
-var queries = require('../queries.index.js');
-var Work = require('../../models/work.js');
+var Artist = require('../../db/models/artist.js');
 
-function deleteWork(req, res) {
-  Work.remove({
+function deleteArtist(req, res) {
+  Artist.remove({
     _id: req.params.id
   }, function(err) {
       if(err) {
@@ -14,4 +13,4 @@ function deleteWork(req, res) {
   });
 }
 
-module.exports = deleteWork;
+module.exports = deleteArtist;
