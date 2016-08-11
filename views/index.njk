@@ -1,0 +1,31 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+WORK ROUTES:
+
+<p>
+  <a href="/works">GET WORKS</a>
+</p>
+
+<form class="" action="/works" method="post">
+  <label for="work">Post Work: </label><br>
+  <input type="text" id="work" name="title" value="" placeholder="work"><br>
+  <input type="submit" value="Submit">
+</form>
+
+<form class="" action="/works" method="delete">
+  <label for="workId">Delete Work With Work ID: </label><br>
+  <input type="number" id="workId" name="title" value="" placeholder="work id"><br>
+  <input type="submit" value="Submit">
+</form>
+
+ARTIST ROUTES:
+
+<form class="" action="/artists" method="post">
+  <label for="artist">Artist: </label><br>
+  <input type="text" id="artist" name="artist" value="" placeholder="artist"><br>
+  <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
