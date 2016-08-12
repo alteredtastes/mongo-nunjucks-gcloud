@@ -1,5 +1,5 @@
 var express = require('express');
-var User = require('../../db/models/user.js');
+var User = require('../../db/models/user/user.js');
 
 function findUsers(req, res) {
   User.find(function(err, users) {

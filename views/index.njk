@@ -5,24 +5,44 @@
 WORK ROUTES:
 
 <p>
-  <a href="/works">GET WORKS</a>
+  <a href="moma/works">GET WORKS</a>
 </p>
 
-<form class="" action="/works" method="post">
+<form class="" action="moma/works" method="post">
   <label for="work">Post Work: </label><br>
   <input type="text" id="work" name="title" value="" placeholder="work"><br>
   <input type="submit" value="Submit">
 </form>
 
-<form class="" action="/works" method="delete">
-  <label for="workId">Delete Work With Work ID: </label><br>
-  <input type="number" id="workId" name="title" value="" placeholder="work id"><br>
+<form class="" action="moma/work/id?_method=PUT" method="post">
+  <label for="workId">Update Work Title By Work ID: </label><br>
+  <input type="text" id="workId" name="id" value="" placeholder="work id"><br>
+  <input type="text" name="title" value="" placeholder="new title">
   <input type="submit" value="Submit">
 </form>
+<br>
 
+<form class="" action="moma/work/id?_method=PUT" method="post">
+  <label for="workId">Update Work Title By Author ID: </label><br>
+  <input type="text" id="workId" name="id" value="" placeholder="work id"><br>
+  <input type="text" name="title" value="" placeholder="new title">
+  <input type="submit" value="Submit">
+</form>
+<br>
+
+<form class="" action="moma/works/id?_method=DELETE" method="post">
+  <label for="workId">Delete Work By Work ID: </label><br>
+  <input type="text" id="workId" name="id" value="" placeholder="work id"><br>
+  <input type="submit" value="Submit">
+</form>
+<br><br>
 ARTIST ROUTES:
 
-<form class="" action="/artists" method="post">
+<p>
+  <a href="moma/artists">GET ARTISTS</a>
+</p>
+
+<form class="" action="moma/artists" method="post">
   <label for="name">Artist: </label><br>
   <input type="text" id="artist" name="name" value="" placeholder="artist"><br>
   <input type="submit" value="Submit">

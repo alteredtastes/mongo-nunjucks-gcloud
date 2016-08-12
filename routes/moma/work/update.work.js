@@ -1,10 +1,9 @@
 var express = require('express');
-var Work = require('../../db/models/work.js');
+var Work = require('../../../db/models/moma/work.js');
 
 function updateWork(req, res) {
-  Work.find({
-    _id: req.params.id
-  }, function(err, updatedWork) {
+  Work.findOneAndUpdate(
+    {_id: req.body.id}, {$set: {title: req.body.title}}, {new: true}, function(err, updatedWork) {
     if(err) {
       res.json({'ERROR': err});
     } else {

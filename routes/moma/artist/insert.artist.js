@@ -1,5 +1,5 @@
 var express = require('express');
-var Artist = require('../../db/models/artist.js');
+var Artist = require('../../../db/models/moma/artist.js');
 
 function insertArtist(req, res) {
   var newArtist = new Artist({

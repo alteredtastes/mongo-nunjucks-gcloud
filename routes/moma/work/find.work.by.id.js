@@ -1,5 +1,5 @@
 var express = require('express');
-var Work = require('../../db/models/work.js');
+var Work = require('../../../db/models/moma/work.js');
 
 function findWorkById(req, res) {
   Work.find({

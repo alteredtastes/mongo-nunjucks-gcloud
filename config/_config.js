@@ -1,8 +1,8 @@
 var config = {};
 
 config.mongoURI = {
-  development: 'mongodb://localhost/workstore',
-  test: 'mongodb://localhost/workstore-test'
+  development: 'mongodb://localhost/moma',
+  test: 'mongodb://localhost/moma-test'
 };
 
 module.exports = config;

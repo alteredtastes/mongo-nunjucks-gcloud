@@ -1,5 +1,7 @@
 var express = require('express');
-var Work = require('../../db/models/work.js');
+var momaModels = require('../../../db/models/moma/moma.model.index.js');
+var Work = momaModels.work;
+// var Work = require('../../../db/models/moma/work.js');
 
 function insertWork(req, res) {
   var newWork = new Work({
