@@ -1,4 +1,5 @@
 module.exports = {
   middleware: require('./middleware'),
-  init: require('./init')
+  redirect: require('./redirect'),
+  callback: require('./callback')
 }
