@@ -28,7 +28,6 @@ function login(req, res, next) {
           username: user.username,
           admin: user.admin
         };
-        console.log(payload);
         res.json({
           success: true,
           message: 'Here is your token!',
