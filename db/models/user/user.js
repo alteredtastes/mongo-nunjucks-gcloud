@@ -7,6 +7,9 @@ var userSchema = new Schema({
   },
   password: {
     type: String
+  },
+  admin: {
+    type: Boolean
   }
 });
 

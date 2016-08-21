@@ -4,16 +4,21 @@ var auth = require('./auth/auth.subroutes');
 var subroutes = require('./subroutes');
 var moma = require('./moma/moma.subroutes');
 
+router.get('/', (req, res) => {res.render('index.njk');});
+
 /*AUTH ROUTES*/
-router.get('/', function(req, res) {res.render('index.njk');});
-router.get('/auth/login', function(req, res){res.render('login.njk');});
+router.get('/auth/login', (req, res) => {res.render('login.njk');});
 router.post('/auth/login', auth.local.login);
+router.get('/auth/register', (req, res) => {res.render('register.njk');});
+router.post('/auth/register', auth.local.register);
+
 router.get('/auth/facebook', auth.facebook.redirect);
 router.get('/auth/facebook/callback', auth.facebook.callback); /*GET FOR TESTING, CHANGE TO POST!!!*/
 router.get('/auth/github', auth.github.redirect);
 router.get('/auth/github/callback', auth.github.callback); /*GET FOR TESTING, CHANGE TO POST!!!*/
 router.get('/auth/google', auth.google.redirect);
 router.get('/auth/google/callback', auth.google.callback); /*GET FOR TESTING, CHANGE TO POST!!!*/
+
 
 /*MOMA ROUTES*/
 router.get('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ auth.local.middleware(), moma.findWorks); //AUTH MIDDLEWARE EXAMPLE

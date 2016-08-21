@@ -1,4 +1,5 @@
 // var jwt = require('jsonwebtoken');
+// require('dotenv').load();
 //
 //
 // function verify(){

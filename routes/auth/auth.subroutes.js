@@ -1,6 +1,7 @@
 module.exports.local = {
   middleware: require('./local/middleware'),
-  login: require('./local/login')
+  login: require('./local/login'),
+  register: require('./local/register')
 }
 
 module.exports.facebook = {
