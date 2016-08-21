@@ -1,4 +1,3 @@
-var express = require('express');
 var accountModels = require('../../db/models/user/accounts.index');
 var User = accountModels.user;
 

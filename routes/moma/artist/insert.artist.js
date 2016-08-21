@@ -1,4 +1,3 @@
-var express = require('express');
 var momaModels = require('../../../db/models/moma/moma.model.index');
 var Artist = momaModels.artist;
 
