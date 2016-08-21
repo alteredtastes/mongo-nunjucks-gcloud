@@ -14,11 +14,11 @@ router.get('/auth/login', function(req, res){
 
 router.post('/auth/login', auth.local.init);
 router.get('/auth/facebook', auth.facebook.redirect);
-router.get('/auth/facebook/callback', auth.facebook.callback);
+/*GET FOR TESTING, CHANGE TO POST!!!*/ router.get('/auth/facebook/callback', auth.facebook.callback);
 router.get('/auth/github', auth.github.redirect);
-router.get('/auth/github/callback', auth.github.callback);
+/*GET FOR TESTING, CHANGE TO POST!!!*/ router.get('/auth/github/callback', auth.github.callback);
 router.get('/auth/google', auth.google.redirect);
-router.get('/auth/google/callback', auth.google.callback);
+/*GET FOR TESTING, CHANGE TO POST!!!*/ router.get('/auth/google/callback', auth.google.callback);
 
 router.get('/moma/works', /* VERIFY JWT HERE */ auth.facebook.middleware(), moma.findWorks); //auth middleware example
 router.get('/moma/work/:id', /* VERIFY JWT HERE */ moma.findWorkById);
