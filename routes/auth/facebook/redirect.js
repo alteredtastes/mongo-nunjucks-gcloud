@@ -1,4 +1,4 @@
-/*LOAD/REQUIRE DOTENV*/
+// require('dotenv').load();
 
 function facebookRedirect(req, res, next){
   res.redirect('/auth/facebook/callback');

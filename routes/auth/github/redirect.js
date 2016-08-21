@@ -1,4 +1,4 @@
-/*LOAD/REQUIRE DOTENV*/
+// require('dotenv').load();
 
 function githubRedirect(req, res, next){
   res.redirect('/auth/github/callback');

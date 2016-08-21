@@ -1,4 +1,4 @@
-/*LOAD/REQUIRE DOTENV*/
+// require('dotenv').load();
 
 function googleRedirect(req, res, next){
   res.redirect('/auth/google/callback');
