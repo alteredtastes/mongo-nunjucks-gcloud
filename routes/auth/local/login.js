@@ -23,10 +23,16 @@ function login(req, res, next) {
           message: 'Authentication failed. Wrong password'
         });
       } else {
+        var payload = {
+          id: user._id,
+          username: user.username,
+          admin: user.admin
+        };
+        console.log(payload);
         res.json({
           success: true,
           message: 'Here is your token!',
-          token: auth.jwt.createJWT(user)
+          token: auth.jwt.createJWT(payload)
         });
       }
     }
