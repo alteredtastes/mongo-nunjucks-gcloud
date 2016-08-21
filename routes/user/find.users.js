@@ -1,5 +1,6 @@
 var express = require('express');
-var User = require('../../db/models/user/user.js');
+var accountModels = require('../../db/models/user/accounts.index');
+var User = accountModels.user;
 
 function findUsers(req, res) {
   User.find(function(err, users) {

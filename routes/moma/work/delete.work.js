@@ -1,5 +1,6 @@
 var express = require('express');
-var Work = require('../../../db/models/moma/work.js');
+var momaModels = require('../../../db/models/moma/moma.model.index');
+var Work = momaModels.work;
 
 function deleteWork(req, res) {
   Work.remove({

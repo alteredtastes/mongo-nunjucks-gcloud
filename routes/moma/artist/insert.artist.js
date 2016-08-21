@@ -1,9 +1,10 @@
 var express = require('express');
-var Artist = require('../../../db/models/moma/artist.js');
+var momaModels = require('../../../db/models/moma/moma.model.index');
+var Artist = momaModels.artist;
 
 function insertArtist(req, res) {
   var newArtist = new Artist({
-    title: req.body.title
+    name: req.body.name
   });
   newArtist.save(function(err) {
     if(err) {

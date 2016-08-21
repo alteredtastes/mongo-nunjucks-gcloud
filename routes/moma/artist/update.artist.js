@@ -1,10 +1,10 @@
 var express = require('express');
-var Artist = require('../../../db/models/moma/artist.js');
+var momaModels = require('../../../db/models/moma/moma.model.index');
+var Artist = momaModels.artist;
 
 function updateArtist(req, res) {
-  Artist.find({
-    _id: req.params.id
-  }, function(err, updatedArtist) {
+  Artist.findOneAndUpdate(
+    {_id: req.body.id}, {$set: {name: req.body.name}}, {new: true}, function(err, updatedArtist) {
     if(err) {
       res.json({'ERROR': err});
     } else {

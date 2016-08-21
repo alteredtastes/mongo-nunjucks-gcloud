@@ -1,2 +1,2 @@
-module.exports.artist = require('./artist.js');
-module.exports.work = require('./work.js');
+module.exports.artist = require('./artist');
+module.exports.work = require('./work');
