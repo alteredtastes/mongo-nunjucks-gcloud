@@ -20,17 +20,17 @@ router.get('/auth/github', auth.github.redirect);
 router.get('/auth/google', auth.google.redirect);
 /*GET FOR TESTING, CHANGE TO POST!!!*/ router.get('/auth/google/callback', auth.google.callback);
 
-router.get('/moma/works', /* VERIFY JWT HERE */ auth.facebook.middleware(), moma.findWorks); //auth middleware example
-router.get('/moma/work/:id', /* VERIFY JWT HERE */ moma.findWorkById);
-router.post('/moma/works', /* VERIFY JWT HERE */ moma.insertWork);
-router.put('/moma/work/:id', /* VERIFY JWT HERE */ moma.updateWork);
-router.delete('/moma/works/:id', /* VERIFY JWT HERE */ moma.deleteWork);
+router.get('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ auth.local.middleware(), moma.findWorks); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.findWorkById);
+router.post('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ moma.insertWork);
+router.put('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.updateWork);
+router.delete('/moma/works/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.deleteWork);
 
-router.get('/moma/artists', /* VERIFY JWT HERE */ auth.github.middleware(), moma.findArtists); //auth middleware example
-router.get('/moma/artist/:id', /* VERIFY JWT HERE */ moma.findArtistById);
-router.post('/moma/artists', /* VERIFY JWT HERE */ moma.insertArtist);
-router.put('/moma/artist/:id', /* VERIFY JWT HERE */ moma.updateArtist);
-router.delete('/moma/artists/:id', /* VERIFY JWT HERE */ moma.deleteArtist);
+router.get('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ auth.facebook.middleware(), moma.findArtists); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.findArtistById);
+router.post('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ moma.insertArtist);
+router.put('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.updateArtist);
+router.delete('/moma/artists/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.deleteArtist);
 
 
 //USER ROUTES
