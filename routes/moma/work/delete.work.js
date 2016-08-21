@@ -6,9 +6,9 @@ function deleteWork(req, res) {
     _id: req.body.id
   }, function(err) {
       if(err) {
-        res.json({'ERROR': err});
+        res.json({error: err});
       } else {
-        res.json({'SUCCESS': req.body.id + ' was deleted.'});
+        res.json({success: req.body.id + ' was deleted.'});
       }
   });
 }

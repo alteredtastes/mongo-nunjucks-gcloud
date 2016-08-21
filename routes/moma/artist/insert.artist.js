@@ -7,9 +7,9 @@ function insertArtist(req, res) {
   });
   newArtist.save(function(err) {
     if(err) {
-      res.json({'ERROR': err});
+      res.json({error: err});
     } else {
-      res.json({'SUCCESS': newArtist});
+      res.json({success: newArtist});
     }
   });
 }

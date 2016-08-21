@@ -6,9 +6,9 @@ function findArtistById(req, res) {
     _id: req.params.id
   }, function(err, artist) {
       if(err) {
-        res.json({'ERROR': err});
+        res.json({error: err});
       } else {
-        res.json({'SUCCESS': artist});
+        res.json({success: artist});
       }
   })
 }

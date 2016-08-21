@@ -4,7 +4,7 @@ var Work = momaModels.work;
 function findWorks(req, res) {
   Work.find(function(err, works) {
     if(err) {
-      res.json({'ERROR': err});
+      res.json({error: err});
     } else {
       res.json(works);
     }

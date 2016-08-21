@@ -2,8 +2,18 @@
 
 {% block content %}
 
+<a href="/">HOME</a>
+
 <p>
   LOGIN PAGE
 </p>
+
+<form class="" action="/auth/login" method="post">
+  <label for="username">Username: </label><br>
+  <input type="text" id="username" name="username" value="" placeholder="username"><br>
+  <label for="password">Password: </label><br>
+  <input type="password" id="password" name="password" value=""><br>
+  <input type="submit" value="Submit">
+</form>
 
 {% endblock %}

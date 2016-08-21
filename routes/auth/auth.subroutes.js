@@ -22,4 +22,4 @@ module.exports.google = {
   callback: require('./google/callback')
 }
 
-module.exports.jwt = require('./jwt');
+module.exports.jwt = require('./jwt.utility');

@@ -6,9 +6,9 @@ function findWorkById(req, res) {
     _id: req.params.id
   }, function(err, work) {
       if(err) {
-        res.json({'ERROR': err});
+        res.json({error: err});
       } else {
-        res.json({'SUCCESS': work});
+        res.json({success: work});
       }
   })
 }

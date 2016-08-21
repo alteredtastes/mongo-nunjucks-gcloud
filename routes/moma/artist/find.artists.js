@@ -4,7 +4,7 @@ var Artist = momaModels.artist;
 function findArtists(req, res) {
   Artist.find(function(err, artists) {
     if(err) {
-      res.json({'ERROR': err});
+      res.json({error: err});
     } else {
       res.json(artists);
     }

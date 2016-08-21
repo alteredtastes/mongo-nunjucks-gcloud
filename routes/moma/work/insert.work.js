@@ -7,9 +7,9 @@ function insertWork(req, res) {
   });
   newWork.save(function(err) {
     if(err) {
-      res.json({'ERROR': err});
+      res.json({error: err});
     } else {
-      res.json({'SUCCESS': newWork});
+      res.json({success: newWork});
     }
   });
 }
