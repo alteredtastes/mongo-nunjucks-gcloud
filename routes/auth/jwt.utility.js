@@ -8,11 +8,11 @@ function createJWT(user) {
   return token;
 }
 
-// function verifyJWT(){
-//
-// }
+function verifyJWT(){
+  console.log('this is the verifyJWT function!');
+}
 
 module.exports = {
   createJWT: createJWT,
-  // verifyJWT: verifyJWT
+  verifyJWT: verifyJWT
 }
