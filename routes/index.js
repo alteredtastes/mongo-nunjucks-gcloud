@@ -24,18 +24,18 @@ router.get('/auth/google/callback', auth.google.callback); /*GET FOR TESTING, CH
 
 /*MOMA ROUTES*/
   /*ARTIST*/
-router.get('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ auth.facebook.middleware(), moma.findArtists); //AUTH MIDDLEWARE EXAMPLE
-router.get('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.findArtistById);
-router.post('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ moma.insertArtist);
-router.put('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.updateArtist);
-router.delete('/moma/artists/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.deleteArtist);
+router.get('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ auth.facebook.middleware(), moma.artist.findAll); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.artist.findOneById);
+router.post('/moma/artists', /* JWT VERIFY MIDDLEWARE HERE */ moma.artist.insertOne);
+router.put('/moma/artist/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.artist.updateOne);
+router.delete('/moma/artists/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.artist.deleteOne);
 
   /*WORK*/
-router.get('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ auth.local.middleware(), moma.findWorks); //AUTH MIDDLEWARE EXAMPLE
-router.get('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.findWorkById);
-router.post('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ moma.insertWork);
-router.put('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.updateWork);
-router.delete('/moma/works/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.deleteWork);
+router.get('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ auth.local.middleware(), moma.work.findAll); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.work.findOneById);
+router.post('/moma/works', /* JWT VERIFY MIDDLEWARE HERE */ moma.work.insertOne);
+router.put('/moma/work/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.work.updateOne);
+router.delete('/moma/works/:id', /* JWT VERIFY MIDDLEWARE HERE */ moma.work.deleteOne);
 
 /*USER ROUTES*/
 router.get('/users', subroutes.findUsers);

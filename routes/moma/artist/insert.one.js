@@ -2,9 +2,11 @@ var momaModels = require('../../../db/models/moma/moma.model.index');
 var Artist = momaModels.artist;
 
 function insertArtist(req, res) {
+
   var newArtist = new Artist({
     name: req.body.name
   });
+
   newArtist.save(function(err) {
     if(err) {
       res.json({error: err});
@@ -12,6 +14,7 @@ function insertArtist(req, res) {
       res.json({success: newArtist});
     }
   });
+
 }
 
 module.exports = insertArtist;
