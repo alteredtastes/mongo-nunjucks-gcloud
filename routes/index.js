@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 var auth = require('./auth/auth.subroutes');
 var subroutes = require('./subroutes');
-var moma = require('./moma/moma.subroutes');
+var org = require('./org/org.subroutes.js');
 
 router.get('/', (req, res) => {res.render('index.njk');});
 
-/*AUTH ROUTESS*/
+/*AUTH ROUTES*/
   /*LOCAL*/
 router.get('/auth/login', (req, res) => {res.render('login.njk');});
 router.post('/auth/login', auth.local.login);
@@ -21,21 +21,21 @@ router.post('/auth/github/callback', auth.github.callback);
 router.get('/auth/google', auth.google.redirect);
 router.post('/auth/google/callback', auth.google.callback);
 
+/*ORGANIZATIONS*/
+  /*MOMA ROUTES*/
+    /*ARTIST*/
+router.get('/org/moma/artists', /*auth.jwt.verifyJWT(), */org.moma.artist.findArtists);
+router.get('/org/moma/artist/:id', /*auth.jwt.verifyJWT(), */org.moma.artist.findArtistById);
+router.post('/org/moma/artists', /*auth.jwt.verifyJWT(), */org.moma.artist.insertArtist);
+router.put('/org/moma/artist/:id', /*auth.jwt.verifyJWT(), */org.moma.artist.updateArtist);
+router.delete('/org/moma/artists/:id', /*auth.jwt.verifyJWT(), */org.moma.artist.deleteArtist);
 
-/*MOMA ROUTES*/
-  /*ARTIST*/
-router.get('/moma/artists', auth.jwt.verifyJWT(), moma.artist.findArtists);
-router.get('/moma/artist/:id', auth.jwt.verifyJWT(), moma.artist.findArtistById);
-router.post('/moma/artists', auth.jwt.verifyJWT(), moma.artist.insertArtist);
-router.put('/moma/artist/:id', auth.jwt.verifyJWT(), moma.artist.updateArtist);
-router.delete('/moma/artists/:id', auth.jwt.verifyJWT(), moma.artist.deleteArtist);
-
-  /*WORK*/
-router.get('/moma/works', auth.jwt.verifyJWT(), moma.work.findWorks);
-router.get('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.findWorkById);
-router.post('/moma/works', auth.jwt.verifyJWT(), moma.work.insertWork);
-router.put('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.updateWork);
-router.delete('/moma/works/:id', auth.jwt.verifyJWT(), moma.work.deleteWork);
+    /*WORK*/
+router.get('/org/moma/works', /*auth.jwt.verifyJWT(), */org.moma.work.findWorks);
+router.get('/org/moma/work/:id', /*auth.jwt.verifyJWT(), */org.moma.work.findWorkById);
+router.post('/org/moma/works', /*auth.jwt.verifyJWT(), */org.moma.work.insertWork);
+router.put('/org/moma/work/:id', /*auth.jwt.verifyJWT(), */org.moma.work.updateWork);
+router.delete('/org/moma/works/:id', /*auth.jwt.verifyJWT(), */org.moma.work.deleteWork);
 
 /*USER ROUTES*/
 router.get('/users', subroutes.findUsers);

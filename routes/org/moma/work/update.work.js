@@ -1,4 +1,4 @@
-var momaModels = require('../../../db/models/moma/moma.model.index');
+var momaModels = require('../../../../db/models/moma/moma.model.index');
 var Work = momaModels.work;
 
 function updateWork(req, res) {

@@ -1,9 +1,9 @@
-var momaModels = require('../../../db/models/moma/moma.model.index');
-var Artist = momaModels.artist;
+var momaModels = require('../../../../db/models/moma/moma.model.index');
+var Work = momaModels.work;
 
-function deleteArtist(req, res) {
+function deleteWork(req, res) {
 
-  Artist.remove({
+  Work.remove({
     _id: req.body.id
   }, function(err) {
       if(err) {
@@ -15,4 +15,4 @@ function deleteArtist(req, res) {
 
 }
 
-module.exports = deleteArtist;
+module.exports = deleteWork;

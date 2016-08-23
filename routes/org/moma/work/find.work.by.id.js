@@ -1,8 +1,8 @@
-var momaModels = require('../../../db/models/moma/moma.model.index');
+var momaModels = require('../../../../db/models/moma/moma.model.index');
 var Work = momaModels.work;
 
 function findWorkById(req, res) {
-  
+
   Work.find({
     _id: req.params.id
   }, function(err, work) {
@@ -12,7 +12,7 @@ function findWorkById(req, res) {
         res.json({success: work});
       }
   });
-  
+
 }
 
 module.exports = findWorkById;

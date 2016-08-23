@@ -1,4 +1,4 @@
-var momaModels = require('../../../db/models/moma/moma.model.index');
+var momaModels = require('../../../../db/models/moma/moma.model.index');
 var Artist = momaModels.artist;
 
 function findArtistById(req, res) {

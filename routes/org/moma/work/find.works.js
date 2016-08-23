@@ -1,4 +1,4 @@
-var momaModels = require('../../../db/models/moma/moma.model.index');
+var momaModels = require('../../../../db/models/moma/moma.model.index');
 var Work = momaModels.work;
 
 function findWorks(req, res) {
@@ -10,7 +10,7 @@ function findWorks(req, res) {
       res.json(works);
     }
   });
-  
+
 }
 
 module.exports = findWorks;
