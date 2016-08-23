@@ -15,11 +15,11 @@ router.post('/auth/register', auth.local.register);
 
   /*OAUTH*/
 router.get('/auth/facebook', auth.facebook.redirect);
-router.get('/auth/facebook/callback', auth.facebook.callback); /*CHANGE TO POST!!!*/
+router.post('/auth/facebook/callback', auth.facebook.callback);
 router.get('/auth/github', auth.github.redirect);
-router.get('/auth/github/callback', auth.github.callback); /*CHANGE TO POST!!!*/
+router.post('/auth/github/callback', auth.github.callback);
 router.get('/auth/google', auth.google.redirect);
-router.get('/auth/google/callback', auth.google.callback); /*CHANGE TO POST!!!*/
+router.post('/auth/google/callback', auth.google.callback);
 
 
 /*MOMA ROUTES*/
@@ -31,7 +31,7 @@ router.put('/moma/artist/:id', auth.jwt.verifyJWT(), moma.artist.updateArtist);
 router.delete('/moma/artists/:id', auth.jwt.verifyJWT(), moma.artist.deleteArtist);
 
   /*WORK*/
-router.get('/moma/works', auth.jwt.verifyJWT(), auth.local.middleware(), moma.work.findWorks); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/works', auth.jwt.verifyJWT(), moma.work.findWorks);
 router.get('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.findWorkById);
 router.post('/moma/works', auth.jwt.verifyJWT(), moma.work.insertWork);
 router.put('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.updateWork);
