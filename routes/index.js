@@ -24,18 +24,18 @@ router.get('/auth/google/callback', auth.google.callback); /*CHANGE TO POST!!!*/
 
 /*MOMA ROUTES*/
   /*ARTIST*/
-router.get('/moma/artists', /* JWT VERIFY, create req.payload from jwt */ auth.facebook.middleware(), moma.artist.findArtists); //AUTH MIDDLEWARE EXAMPLE
-router.get('/moma/artist/:id', /* JWT VERIFY, create req.payload from jwt */ moma.artist.findArtistById);
-router.post('/moma/artists', /* JWT VERIFY, create req.payload from jwt */ moma.artist.insertArtist);
-router.put('/moma/artist/:id', /* JWT VERIFY, create req.payload from jwt */ moma.artist.updateArtist);
-router.delete('/moma/artists/:id', /* JWT VERIFY, create req.payload from jwt */ moma.artist.deleteArtist);
+router.get('/moma/artists', auth.jwt.verifyJWT(), moma.artist.findArtists);
+router.get('/moma/artist/:id', auth.jwt.verifyJWT(), moma.artist.findArtistById);
+router.post('/moma/artists', auth.jwt.verifyJWT(), moma.artist.insertArtist);
+router.put('/moma/artist/:id', auth.jwt.verifyJWT(), moma.artist.updateArtist);
+router.delete('/moma/artists/:id', auth.jwt.verifyJWT(), moma.artist.deleteArtist);
 
   /*WORK*/
-router.get('/moma/works', /* JWT VERIFY, create req.payload from jwt */ auth.local.middleware(), moma.work.findWorks); //AUTH MIDDLEWARE EXAMPLE
-router.get('/moma/work/:id', /* JWT VERIFY, create req.payload from jwt */ moma.work.findWorkById);
-router.post('/moma/works', /* JWT VERIFY, create req.payload from jwt */ moma.work.insertWork);
-router.put('/moma/work/:id', /* JWT VERIFY, create req.payload from jwt */ moma.work.updateWork);
-router.delete('/moma/works/:id', /* JWT VERIFY, create req.payload from jwt */ moma.work.deleteWork);
+router.get('/moma/works', auth.jwt.verifyJWT(), auth.local.middleware(), moma.work.findWorks); //AUTH MIDDLEWARE EXAMPLE
+router.get('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.findWorkById);
+router.post('/moma/works', auth.jwt.verifyJWT(), moma.work.insertWork);
+router.put('/moma/work/:id', auth.jwt.verifyJWT(), moma.work.updateWork);
+router.delete('/moma/works/:id', auth.jwt.verifyJWT(), moma.work.deleteWork);
 
 /*USER ROUTES*/
 router.get('/users', subroutes.findUsers);
