@@ -8,7 +8,7 @@ function createJWT(user) {
   return token;
 }
 
-function verifyJWT(){
+function verifyJWT() {
   return function(req, res, next) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
@@ -17,7 +17,7 @@ function verifyJWT(){
         if (err) {
           return res.json({ success: false, message: 'Failed to authenticate token.' });
         } else {
-          req.payload = decoded;
+          req.decoded = decoded;
           next();
         }
       });

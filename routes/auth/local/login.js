@@ -28,11 +28,8 @@ function login(req, res, next) {
           username: user.username,
           admin: user.admin
         };
-        res.json({
-          success: true,
-          message: 'Here is your token!',
-          token: auth.jwt.createJWT(payload)
-        });
+        var token = auth.jwtutility.createJWT(payload);
+        res.redirect('/users/' + req.body.username + '/dashboard?token=' + token);
       }
     }
   });
