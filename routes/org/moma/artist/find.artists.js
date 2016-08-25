@@ -13,3 +13,4 @@ function findArtists(req, res) {
 }
 
 module.exports = findArtists;
+  

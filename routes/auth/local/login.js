@@ -29,7 +29,12 @@ function login(req, res, next) {
           admin: user.admin
         };
         var token = auth.jwtutility.createJWT(payload);
-        res.redirect('/users/' + req.body.username + '/dashboard?token=' + token);
+        res.json({
+          success: true,
+          message: 'Enjoy your token!',
+          token: token
+        });
+        // res.redirect('/users/' + req.body.username + '/dashboard?token=' + token);
       }
     }
   });

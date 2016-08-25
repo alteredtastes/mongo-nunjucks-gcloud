@@ -28,7 +28,7 @@ router.post('/auth/google/callback', auth.google.callback);
 /*ORG*/
   /*moma*/
     /*artist*/
-router.get('/org/moma/artists', auth.jwtutility.verifyJWT(), org.moma.artist.findArtists);
+router.get('/org/moma/artists', /*auth.jwtutility.verifyJWT(), */org.moma.artist.findArtists);
 router.get('/org/moma/artist/:id', /*auth.jwtutility.verifyJWT(), */org.moma.artist.findArtistById);
 router.post('/org/moma/artists', /*auth.jwtutility.verifyJWT(), */org.moma.artist.insertArtist);
 router.put('/org/moma/artist/:id', /*auth.jwtutility.verifyJWT(), */org.moma.artist.updateArtist);
@@ -42,7 +42,7 @@ router.put('/org/moma/work/:id', /*auth.jwtutility.verifyJWT(), */org.moma.work.
 router.delete('/org/moma/works/:id', /*auth.jwtutility.verifyJWT(), */org.moma.work.deleteWork);
 
 /*USER*/
-router.get('/users/:user/dashboard', auth.jwtutility.verifyJWT(), user.getUserDash);
+router.get('/users/:user/dashboard', /*auth.jwtutility.verifyJWT(), */user.getUserDash);
 router.get('/users', /*auth.jwtutility.verifyJWT(), */user.findUsers);
 
 module.exports = router;
