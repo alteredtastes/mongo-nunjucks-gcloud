@@ -11,7 +11,7 @@ function insertWork(req, res) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: newWork});
+      res.json({inserted: newWork});
     }
   });
 

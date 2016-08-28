@@ -3,13 +3,11 @@ var Artist = momaModels.artist;
 
 function findArtistById(req, res) {
 
-  Artist.find({
-    _id: req.params.id
-  }, function(err, artist) {
+  Artist.findById(req.params.id, function(err, artist) {
       if(err) {
         res.json({error: err});
       } else {
-        res.json({success: artist});
+        res.json(artist);
       }
   });
 

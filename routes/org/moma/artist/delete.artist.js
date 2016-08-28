@@ -9,7 +9,7 @@ function deleteArtist(req, res) {
       if(err) {
         res.json({error: err});
       } else {
-        res.json({success: req.body.id + ' was deleted.'});
+        res.json({deleted: req.body.id + ' was deleted.'});
       }
   });
 

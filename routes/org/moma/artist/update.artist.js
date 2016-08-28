@@ -4,11 +4,12 @@ var Artist = momaModels.artist;
 function updateArtist(req, res) {
 
   Artist.findOneAndUpdate(
-    {_id: req.body.id}, {$set: {name: req.body.name}}, {new: true}, function(err, updatedArtist) {
+    {
+      _id: req.params.id}, {$set: {name: req.body.name}}, {new: true}, function(err, updatedArtist) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: updatedArtist});
+      res.json({updated: updatedArtist});
     }
   });
 

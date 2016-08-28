@@ -8,7 +8,7 @@ function updateWork(req, res) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: updatedWork});
+      res.json({updated: updatedWork});
     }
   });
 

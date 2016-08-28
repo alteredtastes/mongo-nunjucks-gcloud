@@ -11,7 +11,7 @@ function insertArtist(req, res) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: newArtist});
+      res.json({inserted: newArtist});
     }
   });
 
