@@ -106,5 +106,23 @@ describe('Artists', function() {
       });
   });
 
-  it('should delete a SINGLE artist on /artist/<id> DELETE');
+  it('should delete a SINGLE artist on /artist/<id> DELETE', function(done) {
+    chai.request(app)
+    .get('/org/moma/artists')
+    .end(function(err, res) {
+      chai.request(app)
+      .delete('/org/moma/artists/' + res.body[0]._id)
+      .end(function(error, response) {
+        response.should.have.status(200);
+        response.should.be.json;
+        response.body.should.be.a('object');
+        response.body.should.have.property('deleted');
+        response.body.deleted.should.be.a('object');
+        response.body.deleted.should.have.property('_id');
+        response.body.deleted.should.have.property('name');
+        response.body.deleted.name.should.equal('Michelangelo');
+        done();
+      });
+    });
+  });
 });
