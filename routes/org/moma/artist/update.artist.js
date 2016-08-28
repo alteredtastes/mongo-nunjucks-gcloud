@@ -3,14 +3,15 @@ var Artist = momaModels.artist;
 
 function updateArtist(req, res) {
 
-  Artist.findOneAndUpdate(
-    {
-      _id: req.params.id}, {$set: {name: req.body.name}}, {new: true}, function(err, updatedArtist) {
-    if(err) {
-      res.json({error: err});
-    } else {
-      res.json({updated: updatedArtist});
-    }
+  Artist.findById(req.params.id, function(err, artist) {
+    artist.name = req.body.name;
+    artist.save(function(err) {
+      if(err) {
+        res.json({error: err});
+      } else {
+        res.json({updated: artist});
+      }
+    });
   });
 
 }

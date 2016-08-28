@@ -3,13 +3,15 @@ var Work = momaModels.work;
 
 function updateWork(req, res) {
 
-  Work.findOneAndUpdate(
-    {_id: req.body.id}, {$set: {title: req.body.title}}, {new: true}, function(err, updatedWork) {
-    if(err) {
-      res.json({error: err});
-    } else {
-      res.json({updated: updatedWork});
-    }
+  Work.findById(req.params.id, function(err, work) {
+    work.title = req.body.title;
+    work.save(function(err) {
+      if(err) {
+        res.json({error: err});
+      } else {
+        res.json({updated: work});
+      }
+    });
   });
 
 }
